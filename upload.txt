@@ -1,0 +1,31 @@
+POST http://localhost:8080/jersey-attachment-1.0/form/upload HTTP/1.1
+User-Agent: curl/7.33.0
+Host: localhost:8080
+Accept: */*
+Connection: Keep-Alive
+Content-Length: 217
+Expect: 100-continue
+Content-Type: multipart/form-data; boundary=------------------------53ba0cd56ce54de7
+
+--------------------------53ba0cd56ce54de7
+Content-Disposition: form-data; name="file"; filename="input.rtf"
+Content-Type: application/octet-stream
+
+line 1
+line 2
+
+--------------------------53ba0cd56ce54de7--
+
+
+================================================================================================================
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: text/plain
+Content-Length: 55
+Date: Thu, 12 Feb 2015 16:16:45 GMT
+
+----------------------------
+line 1
+line 2
+:input.rtf

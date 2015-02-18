@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.6
+version = '1.0'
+
+ext{
+    jerseyVersion = '2.6'
+
+    tomcatDeploymentDir = 'c:/sw/apache-tomcat-7.0.53/webapps'
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.glassfish.jersey.containers:jersey-container-servlet:$jerseyVersion"
+    compile "org.glassfish.jersey.media:jersey-media-multipart:$jerseyVersion"
+
+}
+
+task deleteExplored (type: Delete) {
+    delete tomcatDeploymentDir, "${war.archiveName -'.war'}"
+}
+
+task deployTomcat (type: Copy, dependsOn: [clean, war, deleteExplored] ) {
+    from war.archivePath
+    into tomcatDeploymentDir
+}
+

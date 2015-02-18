@@ -1,0 +1,16 @@
+GET http://localhost:8080/jersey-attachment-1.0/form/download HTTP/1.1
+User-Agent: curl/7.33.0
+Host: localhost:8080
+Accept: */*
+Connection: Keep-Alive
+
+===========================================================================================
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+content-disposition: attachment; filename = doc.rtf
+Content-Type: application/octet-stream
+Content-Length: 13
+Date: Thu, 12 Feb 2015 16:19:09 GMT
+
+line-1
+line-2
